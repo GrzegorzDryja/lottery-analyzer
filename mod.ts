@@ -6,6 +6,12 @@ interface Result {
   [ key: string ]: string
 }
 
+async function downloadDraws(){
+  const urlToFile = await fetch("https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane");
+  const csv = new Uint8Array(await urlToFile.arrayBuffer());
+  await Deno.writeFile("./data/wyniki.csv", csv);
+}
+
 async function loadResults() {
   const path = join("data", "wyniki.csv");
   const file = await Deno.open(path);
@@ -19,6 +25,7 @@ async function loadResults() {
   return draws as Array<Result>;
 }
 
+// await downloadDraws();
 const draws = await loadResults();
 
 function filterDraws(results: Result[], day1: number, day2: number, month: number, year: number){
