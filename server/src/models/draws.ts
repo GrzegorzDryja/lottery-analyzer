@@ -1,13 +1,14 @@
-import { BufReader } from "https://deno.land/std/io/bufio.ts";
-import { join } from "http://deno.land/std/path/mod.ts";
-import { parse } from "https://deno.land/std/encoding/csv.ts";
+import { BufReader, join, parse } from "../dependenices.ts";
 
 interface Result {
   [ key: string ]: string
 }
 
 const draws = await loadResults();
-const filteredDraws = filterDraws(draws, 31, 31, 7, 2020);
+const date = new Date();
+const today = date.getDay()
+const month = date.getMonth();
+export const filteredDraws = filterDraws(draws, today, today, month, 2020);
 
 async function downloadDraws(){
   const urlToFile = await fetch("https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane");
@@ -39,8 +40,9 @@ function filterDraws(results: Result[], day1: number, day2: number, month: numbe
   })
   return filteredDraws;
 };
+let i = 0;
 
-function checkCombo(element: Result, numbers: number[]){
+function checkCombo(element: Result, numbers: number[]): void{
   let bool: boolean[] = []
 
   for (let i=0; i<=numbers.length; i++){
@@ -49,17 +51,14 @@ function checkCombo(element: Result, numbers: number[]){
     }
   }
 
-if(bool.length === numbers.length){
-  console.log(`Zwycięskie losowanie nr ${element["Numer"]} z dnia ${element["Dzien"]}-${element["Miesiac"]}-${element["Rok"]}`);
-  return true;
+  if(bool.length === numbers.length){
+    i++;
+    //console.log(`${i} zwycięskie losowanie nr ${element["Numer"]} z dnia ${element["Dzien"]}-${element["Miesiac"]}-${element["Rok"]}`);
   }
-  return false;
 }
 
-// await downloadDraws();
+//await downloadDraws();
 
-const hmm = draws.forEach(element => {
-  checkCombo(element, [9, 12, 17, 22, 29])
+draws.forEach(element => {
+  checkCombo(element, [1, 6, 16, 18, 24])
 });
-
-console.log(hmm);
