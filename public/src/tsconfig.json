@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "mapRoot": "ES6",
+        "lib": ["dom", "ES6"],
+    }
+}

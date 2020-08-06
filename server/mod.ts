@@ -28,11 +28,11 @@ app.use(api.routes());
 app.use(api.allowedMethods());
 
 // Serve static files
-app.use(async (ctx) => {
-  const filePath = ctx.request.url.pathname;
+app.use(async (context) => {
+  const filePath = context.request.url.pathname;
   log.info(`Requesting ${filePath}`);
   if (["/index.html", "/main.js", "/main.css", "/images/favicon.png"].includes(filePath)) {
-    await send(ctx, ctx.request.url.pathname, {
+    await send(context, context.request.url.pathname, {
       root: `${Deno.cwd()}/public/dist`,
     });
   }
@@ -40,5 +40,7 @@ app.use(async (ctx) => {
 
 if (import.meta.main) {
   log.info(`Starting server on port ${PORT}...`);
-  await app.listen({ port: PORT });
+  await app.listen({
+    port: PORT
+  });
 }

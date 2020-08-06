@@ -8,7 +8,7 @@ const draws = await loadResults();
 const date = new Date();
 const today = date.getDay()
 const month = date.getMonth();
-export const filteredDraws = filterDraws(draws, today, today, month, 2020);
+export const filteredDraws = filterDraws(draws);
 
 async function downloadDraws(){
   const urlToFile = await fetch("https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane");
@@ -30,16 +30,20 @@ async function loadResults() {
   return draws as Array<Result>;
 }
 
-function filterDraws(results: Result[], day1: number, day2: number, month: number, year: number){
+function filterDraws(results: Result[]){
   const filteredDraws = results.filter((result: Result) => {
     const dzien = +result["Dzien"];
     const miesiac = +result["Miesiac"];
     const rok = +result["Rok"];
+    const nr = +result["Numer"]
 
-    return rok == year && miesiac == month && dzien >= day1 && dzien <= day2;
+    return nr >= results.length-20;
   })
   return filteredDraws;
 };
+
+console.log(filteredDraws);
+
 let i = 0;
 
 function checkCombo(element: Result, numbers: number[]): void{
@@ -53,12 +57,12 @@ function checkCombo(element: Result, numbers: number[]): void{
 
   if(bool.length === numbers.length){
     i++;
-    //console.log(`${i} zwycięskie losowanie nr ${element["Numer"]} z dnia ${element["Dzien"]}-${element["Miesiac"]}-${element["Rok"]}`);
+    console.log(`${i} zwycięskie losowanie nr ${element["Numer"]} z dnia ${element["Dzien"]}-${element["Miesiac"]}-${element["Rok"]}`);
   }
 }
 
 //await downloadDraws();
 
 draws.forEach(element => {
-  checkCombo(element, [1, 6, 16, 18, 24])
+  checkCombo(element, [6, 16, 17, 23, 24])
 });
