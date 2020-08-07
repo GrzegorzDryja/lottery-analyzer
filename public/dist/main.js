@@ -98,24 +98,122 @@ let System, __instantiate;
   };
 })();
 
-"use strict";
-class LastDraws {
-    constructor() {
-        this.loadDraws();
-    }
-    loadDraws() {
-        return fetch("/draws")
-            .then((drawsResponse) => drawsResponse.json())
-            .then((draws) => {
-            const hostElement = document.getElementById("host");
-            draws.forEach((draw) => {
-                const li = document.createElement("li");
-                li.innerHTML = JSON.stringify(draw);
-                hostElement.appendChild(li);
-            });
-        });
-    }
-}
-new LastDraws;
+System.register("models/draw", [], function (exports_1, context_1) {
+    "use strict";
+    var Draw;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [],
+        execute: function () {
+            Draw = class Draw {
+                constructor(Numer, Dzien, Miesiac, Rok, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20) {
+                    this.Numer = Numer;
+                    this.Dzien = Dzien;
+                    this.Miesiac = Miesiac;
+                    this.Rok = Rok;
+                    this.L1 = L1;
+                    this.L2 = L2;
+                    this.L3 = L3;
+                    this.L4 = L4;
+                    this.L5 = L5;
+                    this.L6 = L6;
+                    this.L7 = L7;
+                    this.L8 = L8;
+                    this.L9 = L9;
+                    this.L10 = L10;
+                    this.L11 = L11;
+                    this.L12 = L12;
+                    this.L13 = L13;
+                    this.L14 = L14;
+                    this.L15 = L15;
+                    this.L16 = L16;
+                    this.L17 = L17;
+                    this.L18 = L18;
+                    this.L19 = L19;
+                    this.L20 = L20;
+                }
+            };
+            exports_1("Draw", Draw);
+        }
+    };
+});
+System.register("models/row", [], function (exports_2, context_2) {
+    "use strict";
+    var Row;
+    var __moduleName = context_2 && context_2.id;
+    return {
+        setters: [],
+        execute: function () {
+            Row = class Row {
+                constructor(draws) {
+                    this.makeDivs();
+                }
+                makeDivs() {
+                    const x = document.createElement("div");
+                    x.className = "row";
+                    for (let i = 0; i < 80; i++) {
+                        const y = document.createElement("div");
+                        y.id = "box";
+                        y.className = "square";
+                        x.appendChild(y);
+                    }
+                    return x;
+                }
+            };
+            exports_2("Row", Row);
+        }
+    };
+});
+System.register("components/draws", [], function (exports_3, context_3) {
+    "use strict";
+    var LastDraws;
+    var __moduleName = context_3 && context_3.id;
+    return {
+        setters: [],
+        execute: function () {
+            LastDraws = class LastDraws {
+                constructor() {
+                    this.loadDraws();
+                }
+                loadDraws() {
+                    return fetch("/draws")
+                        .then((drawsResponse) => drawsResponse.json())
+                        .then((draws) => {
+                        const hostElement = document.getElementById("host");
+                        draws.forEach((draw) => {
+                            const seciton = document.createElement("section");
+                            seciton.innerHTML = `Losowanie nr: ${draw.Numer}, z dnia ${draw.Dzien}.${draw.Miesiac}.${draw.Rok}r.`;
+                            const x = document.createElement("div");
+                            x.className = "row";
+                            for (let i = 0; i < 80; i++) {
+                                const y = document.createElement("div");
+                                y.className = "square";
+                                x.appendChild(y);
+                            }
+                            seciton.appendChild(x);
+                            hostElement.appendChild(seciton);
+                        });
+                    });
+                }
+            };
+            exports_3("default", LastDraws);
+        }
+    };
+});
+System.register("mod", ["components/draws"], function (exports_4, context_4) {
+    "use strict";
+    var draws_ts_1;
+    var __moduleName = context_4 && context_4.id;
+    return {
+        setters: [
+            function (draws_ts_1_1) {
+                draws_ts_1 = draws_ts_1_1;
+            }
+        ],
+        execute: function () {
+            new draws_ts_1.default;
+        }
+    };
+});
 
-__instantiate("draws", false);
+__instantiate("mod", false);

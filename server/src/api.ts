@@ -1,4 +1,4 @@
-import { Context, Router } from "http://deno.land/x/oak@v6.0.1/mod.ts";
+import { Context, Router } from "./dependenices.ts";
 import * as draws from "./models/draws.ts";
 
 const router = new Router();

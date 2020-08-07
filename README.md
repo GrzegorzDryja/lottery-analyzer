@@ -7,4 +7,4 @@ Too start server and app:
 > deno run --allow-read --allow-net --allow-env ./server/mod.ts
 
 Too bundle js:
-> deno bundle -c ./public/src/tsconfig.json ./public/src/components/draws.ts ./public/dist/main.js
+> deno bundle -c ./public/src/tsconfig.json ./public/src/mod.ts ./public/dist/main.js
