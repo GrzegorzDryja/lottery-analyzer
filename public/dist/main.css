@@ -2,5 +2,16 @@
   display: table-cell;
   width: 10px;
   height: 10px;
-  background-color: lightblue;
+  border: lightgrey;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.header {
+  display: table-cell;
+  width: 260px;
+}
+
+.win {
+  background-color: red;
 }

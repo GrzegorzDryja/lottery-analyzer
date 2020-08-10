@@ -1,5 +1,4 @@
 import { log, Application, send } from "./src/dependenices.ts";
-
 import api from "./src/api.ts";
 
 // Setup application logger

@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "C:/Users/gd/AppData/Roaming/npm/node_modules/typescript/lib"
+	}
+}

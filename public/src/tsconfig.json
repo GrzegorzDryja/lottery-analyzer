@@ -1,9 +1,11 @@
 {
     "compilerOptions": {
         "mapRoot": "ES6",
+        "sourceMap": true,
         "module": "CommonJS",
         "target": "ES6",
         "moduleResolution": "Node",
         "lib": ["dom", "ES6"],
+        "noEmitOnError": false,
     }
 }
