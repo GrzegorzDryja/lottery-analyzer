@@ -3,9 +3,9 @@
         "mapRoot": "ES6",
         "sourceMap": true,
         "module": "CommonJS",
-        "target": "ES6",
+        "target": "ES2016",
         "moduleResolution": "Node",
-        "lib": ["dom", "ES6"],
+        "lib": ["dom", "ES6", "ES2016.Array.Include"],
         "noEmitOnError": false,
     }
 }
