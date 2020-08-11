@@ -1,3 +1,3 @@
-import LastDraws from "./components/draws.ts"
+import LastDraws from "./components/draws.ts";
 
 new LastDraws;

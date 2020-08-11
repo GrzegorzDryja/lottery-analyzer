@@ -1,10 +1,11 @@
 /// <reference lib="dom" />
 import { Draw } from "../models/draw.ts";
-import { Row } from "./row.ts"
+import { Row } from "../models/row.ts";
+import InputRow from "./input-row.ts";
 
 export default class LastDraws {
   constructor(){
-    this.loadDraws();
+    this.loadDraws();    
   }
 
   private loadDraws() {
@@ -34,8 +35,9 @@ export default class LastDraws {
 
         // console.log(row);
           
-        hostElement.appendChild(a)               
+        hostElement.appendChild(a)         
       });
+      new InputRow;
     });
   }
 }
