@@ -1,5 +1,5 @@
 import { log, Application, send } from "./src/dependenices.ts";
-import api from "./src/api.ts";
+import router from "./src/router.ts";
 
 // Setup application logger
 await log.setup({
@@ -23,15 +23,15 @@ app.use(async (ctx, next) => {
 });
 
 // Serve RESTful API
-app.use(api.routes());
-app.use(api.allowedMethods());
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 // Serve static files
-app.use(async (context) => {
-  const filePath = context.request.url.pathname;
+app.use(async (ctx) => {
+  const filePath = ctx.request.url.pathname;
   log.info(`Requesting ${filePath}`);
   if (["/index.html", "/main.js", "/main.css", "/images/favicon.png"].includes(filePath)) {
-    await send(context, context.request.url.pathname, {
+    await send(ctx, ctx.request.url.pathname, {
       root: `${Deno.cwd()}/public/dist`,
     });
   }

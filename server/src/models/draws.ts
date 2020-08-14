@@ -1,14 +1,13 @@
 import { BufReader, join, parse } from "../dependenices.ts";
+import { Result } from "./interface.ts";
 
-interface Result {
-  [ key: string ]: string
-}
 
-const draws = await loadResults();
+export const draws = await loadResults();
+export const filteredDraws = filterDraws(draws);
 const date = new Date();
 const today = date.getDay()
 const month = date.getMonth();
-export const filteredDraws = filterDraws(draws);
+
 
 async function downloadDraws(){
   const urlToFile = await fetch("https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane");
@@ -42,27 +41,6 @@ function filterDraws(results: Result[]){
   return filteredDraws;
 };
 
-console.log(filteredDraws);
+// await downloadDraws();
+//console.log(filteredDraws);
 
-let i = 0;
-
-function checkCombo(element: Result, numbers: number[]): void{
-  let bool: boolean[] = []
-
-  for (let i=0; i<=numbers.length; i++){
-    if(Object.values(element).includes(`${numbers[i]}`)){
-      bool.push(true)
-    }
-  }
-
-  if(bool.length === numbers.length){
-    i++;
-    console.log(`${i} zwycięskie losowanie nr ${element["Numer"]} z dnia ${element["Dzien"]}-${element["Miesiac"]}-${element["Rok"]}`);
-  }
-}
-
-//await downloadDraws();
-
-draws.forEach(element => {
-  checkCombo(element, [6, 16, 17, 23, 24])
-});
