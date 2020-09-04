@@ -1,0 +1,26 @@
+.square {
+  display: table-cell;
+  width: 10px;
+  height: 10px;
+  border: lightgrey;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.header {
+  display: table-cell;
+  width: 260px;
+}
+
+.win {
+  background-color: red;
+}
+
+.main {
+  border-style: solid;
+  border-color: lime;
+  border-width: thick;
+  border-radius: 1em;
+  padding: 1em;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,6 @@
+.square {
+  display: table-cell;
+  width: 10px;
+  height: 10px;
+  border: solid 1px lightgrey;
+}
