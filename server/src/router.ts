@@ -6,7 +6,7 @@ const router = new Router();
 
 router
   .get("/", (ctx) => {
-    ctx.response.body = "In develop..."
+    ctx.response.body = "http://localhost:8000/index.html"
   })
   .get("/draws", (ctx) => {
     ctx.response.body = draws.filteredDraws
