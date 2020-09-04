@@ -30,24 +30,24 @@ app.use(router.allowedMethods());
 app.use(async (ctx) => {
   const filePath = ctx.request.url.pathname;
   log.info(`Requesting ${filePath}`);
-  if ([
-    "/index.html",
-    "/favicon.ico",
-    "/main.js",
-    "/main.js.map",
-    "/polyfills.js",
-    "/polyfills.js.map",
-    "/runtime.js",
-    "/runtime.js.map",
-    "/styles.js",
-    "/styles.js.map",
-    "/vendor.js",
-    "/vendor.js.map"
-  ].includes(filePath)) {
+  // if ([
+  //   "/index.html",
+  //   "/favicon.ico",
+  //   "/main.js",
+  //   "/main.js.map",
+  //   "/polyfills.js",
+  //   "/polyfills.js.map",
+  //   "/runtime.js",
+  //   "/runtime.js.map",
+  //   "/styles.js",
+  //   "/styles.js.map",
+  //   "/vendor.js",
+  //   "/vendor.js.map"
+  // ].includes(filePath)) {
     await send(ctx, ctx.request.url.pathname, {
-      root: `${Deno.cwd()}/public/angular-frontend/dist/angular-frontend` //Temporary
-    });
-  }
+      root: `${Deno.cwd()}/public/angular-frontend/dist/angular-frontend`,
+      index: "index.html"
+  })
 });
 
 if (import.meta.main) {

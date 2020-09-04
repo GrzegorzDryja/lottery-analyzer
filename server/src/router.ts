@@ -5,9 +5,9 @@ import { checkCombination } from "./models/combo.ts";
 const router = new Router();
 
 router
-  .get("/", (ctx) => {
-    ctx.response.body = "http://localhost:8000/index.html"
-  })
+  // .get("/", (ctx) => {
+  //   ctx.response.body = 
+  // })
   .get("/draws", (ctx) => {
     ctx.response.body = draws.filteredDraws
   })
