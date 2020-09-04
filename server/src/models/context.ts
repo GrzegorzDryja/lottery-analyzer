@@ -1,4 +1,4 @@
-Context {
+type Context {
   app: EventTarget { handle: [AsyncFunction], proxy: false, state: {} },
   state: {},
   request: Request {},

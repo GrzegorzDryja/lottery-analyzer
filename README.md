@@ -8,3 +8,6 @@ Too start server and app:
 
 Too bundle js:
 > deno bundle -c ./public/src/tsconfig.json ./public/src/mod.ts ./public/dist/main.js
+
+Too build angular (from angular folder):
+> npm run build --prod
