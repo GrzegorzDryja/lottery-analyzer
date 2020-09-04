@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppMainInputComponent } from './app-main-input.component';
+import { AppMainInputComponent } from './input.component';
 
 describe('AppMainInputComponent', () => {
   let component: AppMainInputComponent;

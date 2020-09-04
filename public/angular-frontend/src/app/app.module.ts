@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
-import { AppMainDrawsComponent } from './main-draws/app-main-draws.component';
-import { AppMainInputComponent } from './main-input/app-main-input.component';
-import { MainRowComponent } from './main-row/main-row.component';
+import { DrawsComponent } from './app-main/components/draws/draws.component';
+import { AppMainInputComponent } from './app-main/components/input/input.component';
+import { RowComponent } from './app-main/components/row/row.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,12 @@ import { MainRowComponent } from './main-row/main-row.component';
     AppHeaderComponent,
     AppMainComponent,
     AppFooterComponent,
-    AppMainDrawsComponent,
+    DrawsComponent,
     AppMainInputComponent,
-    MainRowComponent
+    RowComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],

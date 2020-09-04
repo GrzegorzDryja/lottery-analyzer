@@ -1,14 +1,14 @@
 /// <reference lib="dom" />
 import { Component, OnInit } from '@angular/core';
-import { Row } from '../../models/row';
-import { Draw } from "../../models/draw";
+import { Row } from '../../../../models/row';
+import { Draw } from "../../../../models/draw";
 
 @Component({
-  selector: 'app-main-draws',
-  templateUrl: './app-main-draws.component.html',
-  styleUrls: ['./app-main-draws.component.css']
+  selector: '[draws]',
+  templateUrl: './draws.component.html',
+  styleUrls: ['./draws.component.css']
 })
-export class AppMainDrawsComponent implements OnInit {
+export class DrawsComponent implements OnInit {
 
   constructor(){
     this.loadDraws();    
