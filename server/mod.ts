@@ -45,7 +45,7 @@ app.use(async (ctx) => {
   //   "/vendor.js.map"
   // ].includes(filePath)) {
     await send(ctx, ctx.request.url.pathname, {
-      root: `${Deno.cwd()}/public/angular-frontend/dist/angular-frontend`,
+      root: `${Deno.cwd()}/public/dist`,
       index: "index.html"
   })
 });

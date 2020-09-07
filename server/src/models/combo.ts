@@ -1,11 +1,10 @@
 import { draws } from "./draws.ts";
 import { Result } from "./interface.ts";
 
-let i = 0;
-
-function checkCombo(element: Result, numbers: number[]): string | void{
+function checkCombo(element: Result, numbers: number[]): boolean {
   let bool: boolean[] = [];
   let pool: string[] = [];
+  let j = 0;
 
   for (let i=0; i<=numbers.length; i++){
     if(Object.values(element).includes(`${numbers[i]}`)){
@@ -14,18 +13,21 @@ function checkCombo(element: Result, numbers: number[]): string | void{
   }
 
   if(bool.length === numbers.length){
-    i++;
-    console.log(`${i} zwycięskie losowanie nr ${element["Numer"]} z dnia ${element["Dzien"]}-${element["Miesiac"]}-${element["Rok"]}`);
+    return true;
   }
-  
-  return;
+  return false;
 }
 
+export function checkCombination(a: number[]): any {
 
-export function checkCombination(a: number[]) {
-  
+  let checked = new Array();
+  let i = 0;
   draws.forEach((element: any) => {
-    checkCombo(element, a)
-  });
+      if(checkCombo(element, a)){
+        checked.push(element)
+        console.log(i++)
+      }
+    })
 
+  return checked;
 }
