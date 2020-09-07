@@ -1,4 +1,7 @@
+<app-row></app-row>
 <label>Twoje liczby</label>
+
+<!--  numbers of inputs above will depend on user chose from 1-10 like in game -->
 <input type="text" [(ngModel)]="nr1" maxlength="2">
 <input type="text" [(ngModel)]="nr2" maxlength="2">
 <input type="text" [(ngModel)]="nr3" maxlength="2">
@@ -6,4 +9,5 @@
 <input type="text" [(ngModel)]="nr5" maxlength="2">
 
 <p>{{ nr1 }}, {{ nr2 }}, {{ nr3 }}, {{ nr4 }}, {{ nr5 }}</p>
+
 <button (click)="checkDraws(nr1, nr2, nr3, nr4, nr5)">Sprawdź</button>

@@ -8,20 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class RowComponent implements OnInit {  
 
   constructor() {
-    this.makeDivs();
   };
 
   makeDivs(): void {
     let row = document.getElementById('main-row');
-    console.log(row);
 
     for(let i=0; i<80; i++){
       let square = document.createElement("div");
           square.className = "square";     
-      row[0].appendChild(square);    
+      row.appendChild(square);    
     };
   };
 
   ngOnInit(): void {
+    this.makeDivs();
   };
 }
