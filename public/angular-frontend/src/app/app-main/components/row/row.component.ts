@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'row',
+  selector: 'app-row',
   templateUrl: './row.component.html',
   styleUrls: ['./row.component.css']
 })
@@ -12,7 +12,7 @@ export class RowComponent implements OnInit {
   };
 
   makeDivs(): void {
-    let row = document.getElementsByClassName("row");
+    let row = document.getElementById('main-row');
     console.log(row);
 
     for(let i=0; i<80; i++){
