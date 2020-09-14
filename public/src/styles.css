@@ -1,14 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.square {
+  height: 23px;
+  background-color: lightgrey;
+}
 
-#host {
-  padding: 1.5em;
-  background-color: lightgoldenrodyellow;
-  border-left: solid 0.5em yellow;
+div.win {
+  background-color: red;
 }
 
 div.header {
-  display: table-cell;
-  font-size: 0.6em;
+  font-size: 0.3em;
+}
+
+/* #host {
+  padding: 1.5em;
+  background-color: lightgoldenrodyellow;
+  border-left: solid 0.5em yellow;
 }
 
 div.square {
@@ -17,8 +24,5 @@ div.square {
   height: 10px;
   border: solid 1px lightgrey;
 }
-
-div.win {
-  background-color: red;
-}
-  
+   */
+   

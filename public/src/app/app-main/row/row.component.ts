@@ -15,7 +15,7 @@ export class RowComponent implements OnInit {
 
     for(let i=0; i<80; i++){
       let square = document.createElement("div");
-          square.className = "square";     
+          square.className = "col-xs-1 square";     
       row.appendChild(square);    
     };
   };

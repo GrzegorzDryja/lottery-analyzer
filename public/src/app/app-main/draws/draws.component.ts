@@ -1,7 +1,7 @@
 /// <reference lib="dom" />
 import { Component, OnInit } from '@angular/core';
-import { Row } from '../../../../models/row';
-import { Draw } from "../../../../models/draw";
+import { Row } from '../../../models/row';
+import { Draw } from "../../../models/draw";
 
 @Component({
   selector: '[draws]',
@@ -48,13 +48,13 @@ export class DrawsComponent implements OnInit {
         const a = document.createElement("div");
               a.className = "row"; 
         const b = document.createElement("div");
-              b.className = "header";
+              b.className = "col-xs-1 header";
               b.innerHTML = headerText;
             a.appendChild(b);      
 
           for(let i=1; i<81; i++){
             const c = document.createElement("div");
-                  c.className = "square";
+                  c.className = "col-xs-1 square";
             if(drawsToColour.includes(`${i}`) === true){
               c.classList.add("win");
             }      
