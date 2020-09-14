@@ -48,7 +48,7 @@ export class DrawsComponent implements OnInit {
         const a = document.createElement("div");
               a.className = "row"; 
         const b = document.createElement("div");
-              b.className = "col-xs-1 header";
+              b.className = "col-xs-20 header";
               b.innerHTML = headerText;
             a.appendChild(b);      
 

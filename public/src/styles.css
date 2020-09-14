@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 .square {
-  height: 23px;
+  height: 18px;
   background-color: lightgrey;
 }
 
@@ -9,7 +9,8 @@ div.win {
 }
 
 div.header {
-  font-size: 0.3em;
+  text-align: right;
+  font-size: 1vw;
 }
 
 /* #host {

@@ -11,7 +11,7 @@ export class RowComponent implements OnInit {
   };
 
   makeDivs(): void {
-    let row = document.getElementById('main-row');
+    let row = document.getElementById('main-row');   
 
     for(let i=0; i<80; i++){
       let square = document.createElement("div");
