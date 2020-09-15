@@ -1,13 +1,11 @@
 import { BufReader, join, parse } from "../dependenices.ts";
 import { Result } from "./interface.ts";
 
-
 export const draws = await loadResults();
 export const filteredDraws = filterDraws(draws);
 const date = new Date();
 const today = date.getDay()
 const month = date.getMonth();
-
 
 async function downloadDraws(){
   const urlToFile = await fetch("https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane");

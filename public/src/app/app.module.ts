@@ -10,6 +10,7 @@ import { AppFooterComponent } from './footer/footer.component';
 import { DrawsComponent } from './app-main/draws/draws.component';
 import { AppMainInputComponent } from './app-main/input/input.component';
 import { RowComponent } from './app-main/row/row.component';
+import { OutputComponent } from './app-main/output/output.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RowComponent } from './app-main/row/row.component';
     AppFooterComponent,
     DrawsComponent,
     AppMainInputComponent,
-    RowComponent
+    RowComponent,
+    OutputComponent
   ],
   imports: [
     FormsModule,

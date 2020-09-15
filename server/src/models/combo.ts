@@ -25,7 +25,6 @@ export function checkCombination(a: number[]): any {
   draws.forEach((element: any) => {
       if(checkCombo(element, a)){
         checked.push(element)
-        console.log(i++)
       }
     })
 

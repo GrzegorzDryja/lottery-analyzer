@@ -13,10 +13,15 @@
             <input type="text" [(ngModel)]="nr3" maxlength="2">
             <input type="text" [(ngModel)]="nr4" maxlength="2">
             <input type="text" [(ngModel)]="nr5" maxlength="2">
+            <input type="text" [(ngModel)]="nr6" maxlength="2">
+            <input type="text" [(ngModel)]="nr7" maxlength="2">
+            <input type="text" [(ngModel)]="nr8" maxlength="2">
+            <input type="text" [(ngModel)]="nr9" maxlength="2">
+            <input type="text" [(ngModel)]="nr10" maxlength="2">
             
-            <p>{{ nr1 }}, {{ nr2 }}, {{ nr3 }}, {{ nr4 }}, {{ nr5 }}</p>
+            <p>{{ nr1 }}, {{ nr2 }}, {{ nr3 }}, {{ nr4 }}, {{ nr5 }}, {{ nr6 }}, {{ nr7 }}, {{ nr8 }}, {{ nr9 }}, {{ nr10 }}</p>
             
-            <button (click)="checkDraws(nr1, nr2, nr3, nr4, nr5)">Sprawdź</button>
+            <button class="btn btn-info" (click)="checkDraws(nr1, nr2, nr3, nr4, nr5)">Check</button>
            
       </div>
 </div>
