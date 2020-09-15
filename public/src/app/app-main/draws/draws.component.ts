@@ -43,7 +43,7 @@ export class DrawsComponent implements OnInit {
           draw.L19,
           draw.L20
         ];
-        const headerText = `Losowanie nr: ${draw.Numer}, z dnia ${draw.Dzien}.${draw.Miesiac}.${draw.Rok}r.`;          
+        const headerText = `Draw no: ${draw.Numer}, date ${draw.Dzien}.${draw.Miesiac}.${draw.Rok}`;          
 
         const a = document.createElement("div");
               a.className = "row"; 
