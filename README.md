@@ -4,7 +4,7 @@ MultiMulti is a polish national lottery game. This app, can check if configurati
 
 
 Too start server and app:
-> deno run --allow-read --allow-net --allow-env ./server/mod.ts
+> deno run --allow-read --allow-net --allow-env --allow-write ./server/mod.ts
 
 Too bundle js:
 > deno bundle -c ./public/src/tsconfig.json ./public/src/mod.ts ./public/dist/main.js

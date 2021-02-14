@@ -13,9 +13,10 @@ export class RowComponent implements OnInit {
   makeDivs(): void {
     let row = document.getElementById('main-row');   
 
-    for(let i=0; i<80; i++){
+    for(let i=1; i<81; i++){
       let square = document.createElement("div");
-          square.className = "col-xs-1 square";     
+          square.className = "col-xs-1 square";
+          square.innerHTML = i.toString();     
       row.appendChild(square);    
     };
   };

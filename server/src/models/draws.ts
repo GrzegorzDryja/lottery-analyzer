@@ -8,7 +8,7 @@ const today = date.getDay()
 const month = date.getMonth();
 
 async function downloadDraws(){
-  const urlToFile = await fetch("https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane");
+  const urlToFile = await fetch('https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane');
   const csv = new Uint8Array(await urlToFile.arrayBuffer());
   const path = join("data", "wyniki.csv");
   await Deno.writeFile(path, csv);
@@ -20,6 +20,7 @@ async function loadResults() {
   const bufReader = new BufReader(file);
   const draws = await parse(bufReader, {
     header: true,
+    lazyQuotes: true,
     comma: ";"
   });
   Deno.close(file.rid); //Remember of that to awoid memory leak
@@ -39,6 +40,6 @@ function filterDraws(results: Result[]){
   return filteredDraws;
 };
 
-// await downloadDraws();
+await downloadDraws();
 //console.log(filteredDraws);
 
