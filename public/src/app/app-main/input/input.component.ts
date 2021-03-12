@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { OutputComponent } from '../output/output.component';
 
 @Component({
@@ -18,9 +20,10 @@ export class AppMainInputComponent implements OnInit {
   nr9: string;
   nr10: string;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.checkDraws
   }
 
   matchDiv(number: string){
@@ -28,14 +31,20 @@ export class AppMainInputComponent implements OnInit {
     console.log(row);
   }
 
-  checkDraws(nr1: string, nr2: string, nr3: string, nr4: string, nr5: string){      
-    return fetch(`http://localhost:8000/draws/${nr1},${nr2},${nr3},${nr4},${nr5}`)
-      .then((drawsResponse) => drawsResponse.json())
-      .then((draws) =>{
-        draws.forEach(element => {
-          const wins = new OutputComponent();
-          wins.outputWins(element)
-        });
-      })
+  checkDraws(){      
+    // return fetch(`https://localhost:8000/draws/${nr1},${nr2},${nr3},${nr4},${nr5}`)
+    //   .then((drawsResponse) => drawsResponse.json())
+    //   .then((draws) =>{
+    //     draws.forEach(element => {
+    //       const wins = new OutputComponent();
+    //       wins.outputWins(element)
+    //     });
+    //   })
+    this.http
+    .get(`http://localhost:8000/draws/1,2,3,4,5`)
+    .subscribe(responseData => {
+      console.log(responseData);
+    })
+
   }
 }
