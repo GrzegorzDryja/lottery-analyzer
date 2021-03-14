@@ -35,7 +35,7 @@ function filterDraws(results: Result[]){
     const rok = +result["Rok"];
     const nr = +result["Numer"]
 
-    return nr >= results.length-20;
+    return nr // >= results.length-20;
   })
   return filteredDraws;
 };
