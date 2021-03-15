@@ -1,4 +1,4 @@
-import { log, Application, send, Context, RouterContext } from "./src/dependenices.ts";
+import { log, Application, send, Context, oakCors } from "./src/dependenices.ts";
 import router from "./src/router.ts";
 
 // Setup application logger
@@ -23,8 +23,12 @@ const app = new Application();
 // });
 
 // Serve RESTful API
+app.use(oakCors({
+  origin: "http://localhost:4200"
+}))
 app.use(router.routes());
 app.use(router.allowedMethods());
+
 
 // Serve static files
 app.use(async (ctx: Context) => {

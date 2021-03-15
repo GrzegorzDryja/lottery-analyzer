@@ -14,12 +14,12 @@ ngOnInit() {
     this.loadDraws();
 }
 
-private loadDraws() {
-    this.http
-        .get('http://localhost:8000/draws')
-        .subscribe(draws => {
-        // ...
-        console.log(draws);
-        });
-    }
+loadDraws() {
+  return this.http
+    .get('http://localhost:8000/draws')
+    .subscribe(draws => {
+    // ...
+    console.log(draws);
+    });
+  }
 }

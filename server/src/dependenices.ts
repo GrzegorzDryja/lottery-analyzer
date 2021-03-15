@@ -10,6 +10,7 @@ export {
 Application,
 Router,
 Context,
-send
+send,
 } from "https://deno.land/x/oak@v6.0.1/mod.ts";
+export { oakCors } from "https://deno.land/x/cors/mod.ts";
 export type { RouterContext } from "https://deno.land/x/oak@v6.0.1/mod.ts";
