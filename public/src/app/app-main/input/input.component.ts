@@ -41,7 +41,7 @@ export class AppMainInputComponent implements OnInit {
     //     });
     //   })
     this.http
-    .get(`http://localhost:8000/draws/1,2,3,4,5`)
+    .get(`http://localhost:8000/check/${this.nr1},${this.nr2},${this.nr3},${this.nr4},${this.nr5}`)
     .subscribe(responseData => {
       console.log(responseData);
     })

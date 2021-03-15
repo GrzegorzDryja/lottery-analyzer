@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './header/app-header.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppFooterComponent } from './footer/footer.component';
-import { DrawsComponent } from './app-main/draws/draws.component';
+import { DrawsComponent } from './app-main/draws/_draws.component';
 import { AppMainInputComponent } from './app-main/input/input.component';
 import { RowComponent } from './app-main/row/row.component';
 import { OutputComponent } from './app-main/output/output.component';
