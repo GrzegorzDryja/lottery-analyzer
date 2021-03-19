@@ -1,3 +1,8 @@
-<div draws id="host" class="container-fluid">
-    <!-- Table goes here -->
-</div>
+<table>
+    <tr>
+        <td *ngFor="let header of headers">{{ header }}</td>
+    </tr>
+    <tr>
+        <td *ngFor="let draw of arrayOfDraws">{{ draw }}</td>
+    </tr>
+</table>
