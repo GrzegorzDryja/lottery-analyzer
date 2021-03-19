@@ -32,19 +32,14 @@ export class AppMainInputComponent implements OnInit {
   }
 
   checkDraws(){      
-    // return fetch(`https://localhost:8000/draws/${nr1},${nr2},${nr3},${nr4},${nr5}`)
-    //   .then((drawsResponse) => drawsResponse.json())
-    //   .then((draws) =>{
-    //     draws.forEach(element => {
-    //       const wins = new OutputComponent();
-    //       wins.outputWins(element)
-    //     });
-    //   })
-    this.http
-    .get(`http://localhost:8000/check/${this.nr1},${this.nr2},${this.nr3},${this.nr4},${this.nr5}`)
-    .subscribe(responseData => {
-      console.log(responseData);
-    })
+    return this.http
+      .get(`http://localhost:8000/check/${this.nr1},${this.nr2},${this.nr3},${this.nr4},${this.nr5}`)
+      .subscribe(responseData => {
+        console.log(responseData);
+      })
+  }
 
+  saveNumbers(){
+    console.log("Saved")
   }
 }

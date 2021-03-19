@@ -12,6 +12,7 @@ import { DrawsComponent } from './app-main/draws/draws.component';
 import { AppMainInputComponent } from './app-main/input/input.component';
 import { RowComponent } from './app-main/row/row.component';
 import { OutputComponent } from './app-main/output/output.component';
+import { NumbersComponent } from './app-main/numbers/numbers.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { OutputComponent } from './app-main/output/output.component';
     AppMainInputComponent,
     RowComponent,
     OutputComponent,
+    NumbersComponent,
   ],
   imports: [
     FormsModule,
