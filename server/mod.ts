@@ -1,4 +1,4 @@
-import { log, Application, send } from "./src/dependenices.ts";
+import { log, Application, send, Context, oakCors } from "./src/dependenices.ts";
 import router from "./src/router.ts";
 
 // Setup application logger
@@ -12,42 +12,46 @@ const PORT = Number(Deno.env.get("PORT")) || 8000;
 
 const app = new Application();
 
-// Error handler middleware
-app.use(async (ctx, next) => {
-  try {
-    await next();
-  } catch (err) {
-    ctx.response.body = "Internal server error";
-    log.error(err);
-  }
-});
+//Error handler middleware
+// app.use(async (ctx: Context) => {
+//   try {
+//     await next();
+//   } catch (err) {
+//     ctx.response.body = "Internal server error";
+//     log.error(err);
+//   }
+// });
 
 // Serve RESTful API
+app.use(oakCors({
+  origin: "http://localhost:4200"  
+}))
 app.use(router.routes());
 app.use(router.allowedMethods());
 
+
 // Serve static files
-app.use(async (ctx) => {
+app.use(async (ctx: Context) => {
   const filePath = ctx.request.url.pathname;
   log.info(`Requesting ${filePath}`);
-  // if ([
-  //   "/index.html",
-  //   "/favicon.ico",
-  //   "/main.js",
-  //   "/main.js.map",
-  //   "/polyfills.js",
-  //   "/polyfills.js.map",
-  //   "/runtime.js",
-  //   "/runtime.js.map",
-  //   "/styles.js",
-  //   "/styles.js.map",
-  //   "/vendor.js",
-  //   "/vendor.js.map"
-  // ].includes(filePath)) {
+  if ([
+    "/index.html",
+    "/favicon.ico",
+    "/main.js",
+    "/main.js.map",
+    "/polyfills.js",
+    "/polyfills.js.map",
+    "/runtime.js",
+    "/runtime.js.map",
+    "/styles.js",
+    "/styles.js.map",
+    "/vendor.js",
+    "/vendor.js.map"
+  ].includes(filePath)) {
     await send(ctx, ctx.request.url.pathname, {
-      root: `${Deno.cwd()}/public/angular-frontend/dist/angular-frontend`,
-      index: "index.html"
-  })
+      root: `${Deno.cwd()}/public/dist`,
+      index: "index.html",
+  })}
 });
 
 if (import.meta.main) {

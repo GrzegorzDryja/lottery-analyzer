@@ -1,16 +1,14 @@
 import { BufReader, join, parse } from "../dependenices.ts";
 import { Result } from "./interface.ts";
 
-
 export const draws = await loadResults();
 export const filteredDraws = filterDraws(draws);
 const date = new Date();
 const today = date.getDay()
 const month = date.getMonth();
 
-
 async function downloadDraws(){
-  const urlToFile = await fetch("https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane");
+  const urlToFile = await fetch('https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane');
   const csv = new Uint8Array(await urlToFile.arrayBuffer());
   const path = join("data", "wyniki.csv");
   await Deno.writeFile(path, csv);
@@ -22,6 +20,7 @@ async function loadResults() {
   const bufReader = new BufReader(file);
   const draws = await parse(bufReader, {
     header: true,
+    lazyQuotes: true,
     comma: ";"
   });
   Deno.close(file.rid); //Remember of that to awoid memory leak
@@ -36,11 +35,11 @@ function filterDraws(results: Result[]){
     const rok = +result["Rok"];
     const nr = +result["Numer"]
 
-    return nr >= results.length-20;
+    return nr >= results.length-19;
   })
   return filteredDraws;
 };
 
-// await downloadDraws();
+await downloadDraws();
 //console.log(filteredDraws);
 
