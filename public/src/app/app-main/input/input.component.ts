@@ -33,7 +33,7 @@ export class AppMainInputComponent implements OnInit {
 
   checkDraws(){      
     return this.http
-      .get(`http://localhost:8000/check/${this.nr1},${this.nr2},${this.nr3},${this.nr4},${this.nr5}`)
+      .get(`http://localhost:8000/check/${this.nr1},${this.nr2},${this.nr3},${this.nr4},${this.nr5},${this.nr6},${this.nr7},${this.nr8},${this.nr9},${this.nr10}`)
       .subscribe(responseData => {
         console.log(responseData);
       })
