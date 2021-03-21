@@ -13,6 +13,7 @@ import { AppMainInputComponent } from './app-main/input/input.component';
 import { RowComponent } from './app-main/row/row.component';
 import { OutputComponent } from './app-main/output/output.component';
 import { NumbersComponent } from './app-main/numbers/numbers.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NumbersComponent } from './app-main/numbers/numbers.component';
     RowComponent,
     OutputComponent,
     NumbersComponent,
+    LoginComponent,
   ],
   imports: [
     FormsModule,

@@ -15,7 +15,6 @@ export class DrawsComponent implements OnInit {
   }
   
   private loadDraws() {
-    console.log("Jestem w funkcji loadDraws w componencie DrawsComponent");
     return fetch("http://localhost:8000/draws")
     .then((drawsResponse) => drawsResponse.json())
     .then((draws) => {
