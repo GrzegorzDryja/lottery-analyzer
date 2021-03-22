@@ -1,6 +1,8 @@
-
-<draws></draws>
-<app-input (numbersChecked)="showWins($event)"></app-input>
+<draws 
+  [headers]="headers"
+  [arrayOfDrawnNumbers]="arrayOfDrawnNumbers">
+</draws>
 <app-row></app-row>
+<app-input (numbersChecked)="showWins($event)"></app-input>
 <app-output></app-output>
 <app-numbers></app-numbers>

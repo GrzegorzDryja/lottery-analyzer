@@ -8,11 +8,11 @@ import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './header/app-header.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppFooterComponent } from './footer/footer.component';
-import { DrawsComponent } from './app-main/draws/draws.component';
+import { DrawsComponent } from './app-main/table/draws.component';
 import { AppMainInputComponent } from './app-main/input/input.component';
-import { RowComponent } from './app-main/row/row.component';
-import { OutputComponent } from './app-main/output/output.component';
-import { NumbersComponent } from './app-main/numbers/numbers.component';
+import { RowComponent } from './app-main/matrix/row.component';
+import { OutputComponent } from './app-main/wins/output.component';
+import { NumbersComponent } from './app-main/savedNumbers/numbers.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
