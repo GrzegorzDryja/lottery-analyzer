@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../../services/http-service.service'
+import { Lots } from 'src/models/Lots.model';
 
 @Component({
   selector: 'app-input',
@@ -7,24 +8,27 @@ import { HttpServiceService } from '../../../services/http-service.service'
   styleUrls: ['./input.component.css']
 })
 export class AppMainInputComponent implements OnInit {
-
-  num0: string = "0";
-  num1: string = "0";
-  num2: string = "0";
-  num3: string = "0";
-  num4: string = "0";
-  num5: string = "0";
-  num6: string = "0";
-  num7: string = "0";
-  num8: string = "0";
-  num9: string = "0";
-
+  lots: Lots = {
+    number0: 0,
+    number1: 0,
+    number2: 0,
+    number3: 0,
+    number4: 0,
+    number5: 0,
+    number6: 0,
+    number7: 0,
+    number8: 0,
+    number9: 0
+  }
+  
   constructor(private http: HttpServiceService) {}
 
   ngOnInit() {
   }
 
   checkDraws(){
-    this.http.checkDraws(this.num0, this.num1, this.num2, this.num3, this.num4).subscribe((response) => console.log(response))
+    this.http
+      .checkDraw(this.lots)
+      .subscribe(response => console.log(response))
   }
 }

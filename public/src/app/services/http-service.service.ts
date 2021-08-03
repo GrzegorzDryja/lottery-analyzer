@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Lots } from 'src/models/Lots.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class HttpServiceService {
   constructor(private http: HttpClient) {}
 
 
-  checkDraws(num0, num1, num2, num3, num4): Observable<any> {
-    return this.http.get<any>(`${this.url}${num0},${num1},${num2},${num3},${num4}`);
+  checkDraw(lots: Lots): Observable<any> {
+    return this.http.get<any>(`${this.url}${lots.number0},${lots.number1},${lots.number2},${lots.number3},${lots.number4}`);
   }
 }
