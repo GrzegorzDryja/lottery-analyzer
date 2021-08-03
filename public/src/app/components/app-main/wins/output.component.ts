@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Input } from '@angular/core';
-import { Draw } from '../../../models/draw';
+import { Draw } from '../../../../models/draw';
 
 @Component({
   selector: 'app-output',
