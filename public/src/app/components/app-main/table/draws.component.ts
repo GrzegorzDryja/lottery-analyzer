@@ -13,6 +13,5 @@ export class DrawsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.headers)
     }
 }

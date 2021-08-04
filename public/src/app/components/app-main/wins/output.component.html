@@ -3,7 +3,6 @@
 		<h3 class="panel-title">Wins!</h3>				
 	</div>
 	<div class="panel-body">
-		<ng-content></ng-content>
-		Chciałbym, żeby tu wyświetlały się wygrane.
+		<p *ngFor="let el of draws">{{ el }}</p>
 	</div>
 </div>

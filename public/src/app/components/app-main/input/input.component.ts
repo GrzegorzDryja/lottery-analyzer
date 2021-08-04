@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../../services/http.service'
+import { HttpService } from 'src/app/services/http.service'
 import { Lots } from 'src/models/Lots.model';
+import { UiService } from 'src/app/services/ui.service';
+import { Draw } from 'src/models/Draw.model';
 
 @Component({
   selector: 'app-input',
@@ -21,7 +23,7 @@ export class AppMainInputComponent implements OnInit {
     number9: 0
   }
   
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, private ui: UiService) {}
 
   ngOnInit() {
   }
@@ -29,6 +31,7 @@ export class AppMainInputComponent implements OnInit {
   checkDraws(){
     this.http
       .checkDraw(this.lots)
-      .subscribe(response => console.log(response))
+      .subscribe(
+        (response: Draw[]) => this.ui.getDrawsResponse(response))
   }
 }

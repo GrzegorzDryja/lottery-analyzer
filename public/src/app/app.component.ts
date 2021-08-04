@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Draw } from '../models/draw';
+import { Draw } from '../models/Draw.model';
 
 @Component({
   selector: 'app-root',

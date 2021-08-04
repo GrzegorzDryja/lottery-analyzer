@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Draw } from '../../../models/draw';
+import { Draw } from '../../../models/Draw.model';
 
 @Component({
   selector: 'app-main',
