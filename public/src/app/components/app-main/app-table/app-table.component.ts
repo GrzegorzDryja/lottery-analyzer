@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input() headers: string[];
-  @Input() arrayOfDrawnNumbers: string[];
+  @Input() arrayOfDrawnNumbers: any;
 
   constructor() {
   }

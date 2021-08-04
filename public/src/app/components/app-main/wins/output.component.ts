@@ -11,15 +11,15 @@ import { Draw } from 'src/models/Draw.model'
 export class OutputComponent implements OnInit {
   subscription: Subscription;
   winHeaders: string[];
-  winNumbers: string[];
+  winNumbers: any = [];
 
 
   constructor(private ui: UiService) {
     this.subscription = this.ui
       .readWins()
       .subscribe(draws => {
-        this.winHeaders = Object.keys(draws[0])
-        this.winNumbers = Object.values(draws[0]);
+        this.winHeaders = Object.keys(draws[0]);
+        draws.forEach(draw => this.winNumbers.push(Object.values(draw)));
       })
   }
 

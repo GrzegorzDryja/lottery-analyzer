@@ -2,7 +2,7 @@
   <tr>
     <th *ngFor="let header of headers">{{ header }}</th>
   </tr>
-  <tr>
-    <td *ngFor="let draw of arrayOfDrawnNumbers">{{ draw }}</td>
+  <tr *ngFor="let draw of arrayOfDrawnNumbers">
+    <td *ngFor="let el of draw">{{ el }}</td>
   </tr>
 </table>

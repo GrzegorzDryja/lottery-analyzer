@@ -11,7 +11,7 @@ import { Draw } from '../../../models/Draw.model';
 export class AppMainComponent implements OnInit {
   winsArray = ["wins"];
   headers: string[];
-  arrayOfDrawnNumbers: string[];
+  arrayOfDrawnNumbers: any = [];
 
   constructor(private http: HttpClient) { }
 
@@ -23,8 +23,8 @@ export class AppMainComponent implements OnInit {
     return this.http
       .get('http://localhost:8000/draws') //Make this as a service DI
       .subscribe(draws => {
-        this.headers = Object.keys(draws[19])
-        this.arrayOfDrawnNumbers = Object.values(draws[19]);
+        this.headers = Object.keys(draws[0]);
+        Object.values(draws).forEach(draw => this.arrayOfDrawnNumbers.push(Object.values(draw)));
       });
   };
   showWins(wins: [Draw]){
