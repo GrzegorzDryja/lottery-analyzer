@@ -10,12 +10,17 @@ import { Draw } from 'src/models/Draw.model'
 })
 export class OutputComponent implements OnInit {
   subscription: Subscription;
-  draws: string[] = [];
+  winHeaders: string[];
+  winNumbers: string[];
+
 
   constructor(private ui: UiService) {
     this.subscription = this.ui
       .readWins()
-      .subscribe(draws => draws.forEach(draw => this.draws.push(JSON.stringify(draw))))
+      .subscribe(draws => {
+        this.winHeaders = Object.keys(draws[0])
+        this.winNumbers = Object.values(draws[0]);
+      })
   }
 
   ngOnInit(): void {}

@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'draws',
-    templateUrl: './draws.component.html',
-    styleUrls: ['./draws.component.css']
+    selector: 'app-table',
+    templateUrl: './app-table.component.html',
+    styleUrls: ['./app-table.component.css']
 })
-export class DrawsComponent implements OnInit {
+export class TableComponent implements OnInit {
   @Input() headers: string[];
   @Input() arrayOfDrawnNumbers: string[];
 

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './components/header/app-header.component';
 import { AppMainComponent } from './components/app-main/app-main.component';
 import { AppFooterComponent } from './components/footer/footer.component';
-import { DrawsComponent } from './components/app-main/table/draws.component';
+import { TableComponent } from './components/app-main/app-table/app-table.component';
 import { AppMainInputComponent } from './components/app-main/input/input.component';
 import { RowComponent } from './components/app-main/matrix/row.component';
 import { OutputComponent } from './components/app-main/wins/output.component';
@@ -21,7 +21,7 @@ import { LoginComponent } from './components/login/login.component';
     AppHeaderComponent,
     AppMainComponent,
     AppFooterComponent,
-    DrawsComponent,
+    TableComponent,
     AppMainInputComponent,
     RowComponent,
     OutputComponent,
