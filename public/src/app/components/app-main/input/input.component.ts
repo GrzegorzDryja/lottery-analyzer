@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpServiceService } from '../../../services/http-service.service'
+import { HttpService } from '../../../services/http.service'
 import { Lots } from 'src/models/Lots.model';
 
 @Component({
@@ -21,7 +21,7 @@ export class AppMainInputComponent implements OnInit {
     number9: 0
   }
   
-  constructor(private http: HttpServiceService) {}
+  constructor(private http: HttpService) {}
 
   ngOnInit() {
   }

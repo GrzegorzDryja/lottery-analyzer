@@ -6,11 +6,10 @@ import { Lots } from 'src/models/Lots.model';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpServiceService {
+export class HttpService {
   private url: string = 'http://localhost:8000/check/'
 
   constructor(private http: HttpClient) {}
-
 
   checkDraw(lots: Lots): Observable<any> {
     const lotsWithoutZeros: string = this.removeZeros(lots);
