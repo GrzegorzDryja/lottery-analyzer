@@ -1,0 +1,22 @@
+input {
+    border: 2px solid #ffd105;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 700;
+    height: 3em;
+    margin: 0 1px 4px;
+    padding: 0;
+    text-align: center;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

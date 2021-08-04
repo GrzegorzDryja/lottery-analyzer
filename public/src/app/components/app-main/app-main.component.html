@@ -1,0 +1,27 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">Last draws:</h3>
+  </div>
+  <div class="panel-body">
+    <app-table 
+      [headers]="headers"
+      [arrayOfDrawnNumbers]="arrayOfDrawnNumbers">
+    </app-table>
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Check numbers:</h3>         
+  </div>
+  <div class="panel-body">
+    <app-input></app-input>
+  </div>
+</div>
+<div class="panel panel-success">
+	<div class="panel-heading">
+		<h3 class="panel-title">Wins!</h3>				
+	</div>
+	<div class="panel-body">
+    <app-output></app-output>
+  </div>
+</div>
