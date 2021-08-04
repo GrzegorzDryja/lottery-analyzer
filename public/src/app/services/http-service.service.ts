@@ -13,6 +13,20 @@ export class HttpServiceService {
 
 
   checkDraw(lots: Lots): Observable<any> {
-    return this.http.get<any>(`${this.url}${lots.number0},${lots.number1},${lots.number2},${lots.number3},${lots.number4}`);
+    const lotsWithoutZeros: string = this.removeZeros(lots);
+    return this.http.get<any>(`${this.url}${lotsWithoutZeros}`);
+  }
+
+  removeZeros(lots: Lots): string {
+    const lotsArray: number[] = Object.values(lots);
+    let returnString: string = '';
+
+    lotsArray.forEach(lot => {
+      if(lot !== 0){
+        returnString = returnString.concat(lot.toString() + ',');
+      }        
+    });
+
+    return returnString.slice(0, -1);
   }
 }
