@@ -15,6 +15,7 @@ import { OutputComponent } from './components/app-main/wins/output.component';
 import { NumbersComponent } from './components/app-main/savedNumbers/numbers.component';
 import { LoginComponent } from './components/login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NotificationLabelComponent } from './components/notification-label/notification-label.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     OutputComponent,
     NumbersComponent,
     LoginComponent,
+    NotificationLabelComponent,
   ],
   imports: [
     FormsModule,

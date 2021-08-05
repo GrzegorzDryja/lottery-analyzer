@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faTrophy, faChartBar } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent implements OnInit {
+  faTrophy = faTrophy;
+  faChartBar = faChartBar;
 
   constructor() { }
 

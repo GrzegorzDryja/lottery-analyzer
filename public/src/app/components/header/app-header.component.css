@@ -1,4 +1,13 @@
 nav {
   padding: 0px 15px 0px 15px;
+}
 
+.logo {
+  font-size: 1em;
+  float: right;
+}
+
+fa-icon {
+  font-size: 3em;
+  color: gray;
 }
