@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { UiService } from 'src/app/services/ui.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -9,15 +7,10 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./notification-label.component.css']
 })
 export class NotificationLabelComponent implements OnInit {
-  subscription: Subscription;
-  notificationValue: number = 0;
+@Input() notificationValue: number = 0;
 
 
-  constructor(private uiService: UiService) { 
-    this.subscription = this.uiService
-      .readWins()
-      .subscribe(draws => this.notificationValue = draws.length)
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }
