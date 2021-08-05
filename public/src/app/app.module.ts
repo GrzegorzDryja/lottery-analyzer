@@ -14,6 +14,7 @@ import { RowComponent } from './components/app-main/matrix/row.component';
 import { OutputComponent } from './components/app-main/wins/output.component';
 import { NumbersComponent } from './components/app-main/savedNumbers/numbers.component';
 import { LoginComponent } from './components/login/login.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
