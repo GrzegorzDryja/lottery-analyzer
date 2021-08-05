@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { Draw } from '../../../models/Draw.model';
+import { HttpService } from 'src/app/services/http.service';
+import { Draw } from 'src/models/Draw.model';
 
 @Component({
   selector: 'app-main',
@@ -9,25 +8,19 @@ import { Draw } from '../../../models/Draw.model';
   styleUrls: ['./app-main.component.css']
 })
 export class AppMainComponent implements OnInit {
-  winsArray = ["wins"];
+
   headers: string[];
   arrayOfDrawnNumbers: any = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpService) {}   
 
   ngOnInit(): void {
-    this.loadDraws();
-  }
-
-  loadDraws() {
-    return this.http
-      .get('http://localhost:8000/draws') //Make this as a service DI
-      .subscribe(draws => {
-        this.headers = Object.keys(draws[0]);
-        Object.values(draws).forEach(draw => this.arrayOfDrawnNumbers.push(Object.values(draw)));
-      });
-  };
-  showWins(wins: [Draw]){
-    this.winsArray.push(wins[0].Numer)
+    this.http.loadDraws().subscribe((draws: Draw[]) => {
+      this.headers = Object.keys(draws[0]);
+      Object.values(draws)
+        .forEach(draw => {
+          this.arrayOfDrawnNumbers.push(Object.values(draw))
+        })
+    })
   }
 }

@@ -1,4 +1,18 @@
-nav {
-  padding: 0px 15px 0px 15px;
+/* .navbar {
+  padding: 0em 1em 0em 1em;
+}
+*/
+.logo {
+  font-size: 2em;
+  color: gray;
+}
 
+fa-icon {
+  font-size: 2em;
+  color: gray;
+  float: left;
+}
+
+.trophy {
+  font-size: 3em;
 }

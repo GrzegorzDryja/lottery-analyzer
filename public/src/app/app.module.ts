@@ -14,6 +14,10 @@ import { RowComponent } from './components/app-main/matrix/row.component';
 import { OutputComponent } from './components/app-main/wins/output.component';
 import { NumbersComponent } from './components/app-main/savedNumbers/numbers.component';
 import { LoginComponent } from './components/login/login.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NotificationLabelComponent } from './components/notification-label/notification-label.component';
+import { AboutPageComponent } from './components/pages/about-page/about-page.component';
+import { AuthorComponent } from './components/pages/author/author.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +31,16 @@ import { LoginComponent } from './components/login/login.component';
     OutputComponent,
     NumbersComponent,
     LoginComponent,
+    NotificationLabelComponent,
+    AboutPageComponent,
+    AuthorComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

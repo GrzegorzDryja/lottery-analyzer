@@ -1,7 +1,6 @@
-import { Component, OnInit, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
-import { Draw } from 'src/models/Draw.model'
 
 @Component({
   selector: 'app-output',
