@@ -5,9 +5,12 @@ nav {
 .logo {
   font-size: 1em;
   float: right;
+  margin-left: 4em;
+  padding-right: 1em 
 }
 
 fa-icon {
   font-size: 3em;
   color: gray;
+  position: absolute;
 }
