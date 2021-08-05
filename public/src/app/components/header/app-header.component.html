@@ -1,37 +1,22 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-light bg-warning fixed-top">
 
     <a class="navbar-brand" routerLink="">
-        <fa-icon [icon]="faChartBar"></fa-icon>
-        <span class="logo">                
-            MultiMulti<br>
-            Analyser
-        </span>
+        <fa-icon [icon]="faChartBar"></fa-icon> 
+        <span class="logo">MultiMulti Analyser</span>
     </a>
 
-    <div class="nav navbar-nav navbar-right">        
-        <fa-icon [icon]="faTrophy"></fa-icon>
-        <app-notification-label *ngIf="notify" [notificationValue]="notificationValue"></app-notification-label>
-    </div>
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            <li class="active">
-                <a routerLink="about">About the App</a>
-            </li>
-            <li>
-                <a routerLink="author">Author</a>
-            </li>
-        </ul>
-    </div>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about">About the App</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="author">Author</a>
+        </li>
+    </ul>
+
+    <span class="navbar-text">
+            <fa-icon [icon]="faTrophy" class="trophy"></fa-icon>
+            <app-notification-label *ngIf="notify" [notificationValue]="notificationValue"></app-notification-label>
+    </span>
 </nav>
-

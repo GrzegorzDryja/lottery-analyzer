@@ -1,11 +1,11 @@
 .notification {
-    position: relative;
+    position: absolute;
     width: 2em;
     height: 1.5em;
     background-color: red;
     color: whitesmoke;
     border-radius: 0.4em;
     text-align: center;
-    top: 0.5em;
+    top: 1em;
     right: 0.5em;
 }
