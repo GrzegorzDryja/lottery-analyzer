@@ -1,4 +1,4 @@
-import { Router, RouterContext } from "./dependenices.ts";
+import { Router, RouterContext } from "./dependencies.ts";
 import * as draws from "./models/draws.ts";
 import { checkCombination } from "./models/combo.ts";
 

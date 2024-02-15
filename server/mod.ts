@@ -1,10 +1,10 @@
-import { log, Application, send, Context, oakCors } from "./src/dependenices.ts";
+import { log, Application, send, Context, oakCors } from "./src/dependencies.ts";
 import router from "./src/router.ts";
 
 // Setup application logger
 await log.setup({
   handlers: {
-    console: new log.handlers.ConsoleHandler("DEBUG"),
+    // console: new log.handlers.ConsoleHandler("DEBUG"),
   }
 });
 

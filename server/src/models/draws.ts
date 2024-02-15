@@ -1,4 +1,4 @@
-import { BufReader, join, parse } from "../dependenices.ts";
+import { BufReader, join, parse } from "../dependencies.ts";
 import { Result } from "./interface.ts";
 
 export const draws = await loadResults();
@@ -18,14 +18,12 @@ async function loadResults() {
   const path = join("data", "wyniki.csv");
   const file = await Deno.open(path);
   const bufReader = new BufReader(file);
-  const draws = await parse(bufReader, {
-    header: true,
+  const draws = await parse(bufReader.toString(), {
     lazyQuotes: true,
-    comma: ";"
   });
   Deno.close(file.rid); //Remember of that to awoid memory leak
 
-  return draws as Array<Result>;
+  return draws as unknown as Array<Result>;
 }
 
 function filterDraws(results: Result[]){
