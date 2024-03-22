@@ -10,5 +10,6 @@ export type { RouterContext } from 'https://deno.land/x/oak@v6.0.1/mod.ts';
 export { oakCors } from 'https://deno.land/x/cors@v1.2.2/mod.ts';
 
 //Global const data
-export const CSV_RESOURCE = 'https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane';
+// export const CSV_RESOURCE = 'https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane';
+export const CSV_RESOURCE = 'https://www.multipasko.pl/wyniki-csv.php?f=minilotto-sortowane';
 export const CSV_PATH = './data/wyniki.csv';
