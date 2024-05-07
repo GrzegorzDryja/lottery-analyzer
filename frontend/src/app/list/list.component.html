@@ -1,0 +1,112 @@
+@if (draws$ | async; as data) {
+  @for (draw of data; track $index) {
+
+		<div class="row">
+			<div class="row__header">{{ draw.Numer }}</div>
+			<div class="row__header">{{ draw.Dzien }}</div>
+			<div class="row__header">{{ draw.Miesiac }}</div>
+			<div class="row__header">{{ draw.Rok }}</div>
+		
+			@for (i of arr; track $index) {
+				<!-- <div class="item" [ngClass]="{ 'item--white': checkNumber($index + 1, [draw.L1, draw.L2, draw.L3, draw.L4, draw.L5])}">
+					{{ $index + 1 }}
+				</div> -->
+				<div class="item" [ngClass]="{ 'item--white': checkNumber($index + 1, [draw.L1, draw.L2, draw.L3, draw.L4, draw.L5])}">
+					{{ $index + 1 }}
+				</div>
+			}
+		</div>
+
+		<!-- //  draw.L6, draw.L7, draw.L8, draw.L9, draw.L10, draw.L11, draw.L12, draw.L13, draw.L14, draw.L15, draw.L16, draw.L17, draw.L18, draw.L19, draw.L20 -->
+	}
+}
+<div class="row row--hover1 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--past-prediction': checkNumber($index + 1, [4,8,10,12,11,12,13,16,17,22,24,27,28,29,30,31,34,35,39,40])}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+
+<div class="row row--hover1 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--past-prediction': checkNumber($index + 1, newSet)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+
+<div class="row row--hover1 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet2.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--past-prediction': checkNumber($index + 1, newSet2)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+
+<div class="row row--hover1 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet3.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--past-prediction': checkNumber($index + 1, newSet3)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+
+<div class="row row--hover1 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet4.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--past-prediction': checkNumber($index + 1, newSet4)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+
+<div class="row row--hover1 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet5.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet5)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+
+<div class="row row--hover3">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet6.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet6)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>

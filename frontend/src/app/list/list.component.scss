@@ -1,0 +1,48 @@
+.row {
+  display: flex;
+
+  &__header {
+	width: 3rem;
+  }
+
+  &--opacity {
+	opacity: 0.2;
+  }
+
+  &--hover1 {
+		transform: translateY(-900%);
+	}
+  &--hover3 {
+		transform: translateY(-600%);
+	}
+
+  &--hover2 {
+		transform: translateY(-00%);
+	}
+}
+
+.item {
+	width: 2rem;
+	height: 2rem;
+	display: grid;
+	place-items: center;
+
+	background-color: black;
+	color: green;
+
+	&--hover {
+		background-color: transparent;
+	}
+
+	&--white {
+		background-color: white;
+	}
+
+	&--past-prediction {
+		background-color: red;
+	}
+
+	&--prediction {
+		background-color: palevioletred;
+	}
+}
