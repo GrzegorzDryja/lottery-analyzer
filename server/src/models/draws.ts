@@ -37,7 +37,7 @@ function transformCSV(draws: string): MultiMulitResult[] {
 }
 
 function filterDraws(results: MultiMulitResult[]): MultiMulitResult[] {
-  const LAST = 19
+  const LAST = 100
   const filteredDraws = results.filter((result: Result) => {
     const nr = +result['Numer'];
 
