@@ -1,26 +1,25 @@
-import { log, Application, send, Context, oakCors } from "./src/dependenices.ts";
+import { log, Application, send, Context, oakCors } from "./src/dependencies.ts";
 import router from "./src/router.ts";
 
 // Setup application logger
 await log.setup({
   handlers: {
-    console: new log.handlers.ConsoleHandler("DEBUG"),
+    console: new log.ConsoleHandler("DEBUG"),
   }
 });
 
 const PORT = Number(Deno.env.get("PORT")) || 8000;
-
 const app = new Application();
 
 //Error handler middleware
-// app.use(async (ctx: Context) => {
-//   try {
-//     await next();
-//   } catch (err) {
-//     ctx.response.body = "Internal server error";
-//     log.error(err);
-//   }
-// });
+app.use(async (ctx: Context, next) => {
+  try {
+    await next();
+  } catch (err) {
+    ctx.response.body = "Internal server error";
+    log.error(err);
+  }
+});
 
 // Serve RESTful API
 app.use(oakCors({
@@ -28,7 +27,6 @@ app.use(oakCors({
 }))
 app.use(router.routes());
 app.use(router.allowedMethods());
-
 
 // Serve static files
 app.use(async (ctx: Context) => {

@@ -1,31 +1,28 @@
-import { draws } from "./draws.ts";
-import { Result } from "./interface.ts";
+import { draws } from './draws.ts';
+import { MultiMulitResult, MultiMulti } from './interface.ts';
 
-function checkCombo(element: Result, numbers: number[]): boolean {
-  let bool: boolean[] = [];
-  let pool: string[] = [];
-  let j = 0;
+function checkCombo(element: MultiMulti, numbers: number[]): boolean {
+  const isCombo: boolean[] = [];
 
-  for (let i=0; i<=numbers.length; i++){
-    if(Object.values(element).includes(`${numbers[i]}`)){
-      bool.push(true)
+  numbers.forEach((number) => {
+    if (Object.values(element).includes(number)) {
+      isCombo.push(true);
     }
-  }
+  });
 
-  if(bool.length === numbers.length){
+  if (isCombo.length === numbers.length) {
     return true;
   }
+
   return false;
 }
 
-function removeFirstFourObjectParams(element: any){
-
-  let trimedElement: any;
-  
-  trimedElement = {
+//TODO: L1 - L20 is limited only to multi-multi 20 numbers
+function onlyNumbers<T>(element: MultiMulitResult): T {
+  return {
     L1: element.L1,
     L2: element.L2,
-    L3: element.L3, 
+    L3: element.L3,
     L4: element.L4,
     L5: element.L5,
     L6: element.L6,
@@ -42,22 +39,18 @@ function removeFirstFourObjectParams(element: any){
     L17: element.L17,
     L18: element.L18,
     L19: element.L19,
-    L20: element.L20
-  };
-
-  return trimedElement;
+    L20: element.L20,
+  } as T;
 }
 
-export function checkCombination(a: number[]): any {
+export function checkCombination(numbers: number[]): MultiMulitResult[] {
+  const checked: MultiMulitResult[] = [];
 
-  let checked = new Array();
-  let i = 0;
-
-  draws.forEach((element: any) => {
-      if(checkCombo(removeFirstFourObjectParams(element), a)){
-        checked.push(element)
-      }
-    })
+  draws.forEach((result) => {
+    if (checkCombo(onlyNumbers<MultiMulti>(result), numbers)) {
+      checked.push(result);
+    }
+  });
 
   return checked;
 }

@@ -1,45 +1,49 @@
-import { BufReader, join, parse } from "../dependenices.ts";
-import { Result } from "./interface.ts";
+import { CSV_PATH, CSV_RESOURCE } from '../dependencies.ts';
+import { MultiMulitResult, Result } from './interface.ts';
 
-export const draws = await loadResults();
+export const draws = await loadResultsFromFile();
 export const filteredDraws = filterDraws(draws);
-const date = new Date();
-const today = date.getDay()
-const month = date.getMonth();
 
-async function downloadDraws(){
-  const urlToFile = await fetch('https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane');
+async function downloadDraws() {
+  const urlToFile = await fetch(CSV_RESOURCE);
+  saveToFile(urlToFile);
+}
+
+async function saveToFile(urlToFile: Response): Promise<void> {
   const csv = new Uint8Array(await urlToFile.arrayBuffer());
-  const path = join("data", "wyniki.csv");
-  await Deno.writeFile(path, csv);
+  await Deno.writeFile(CSV_PATH, csv);
 }
 
-async function loadResults() {
-  const path = join("data", "wyniki.csv");
-  const file = await Deno.open(path);
-  const bufReader = new BufReader(file);
-  const draws = await parse(bufReader, {
-    header: true,
-    lazyQuotes: true,
-    comma: ";"
-  });
-  Deno.close(file.rid); //Remember of that to awoid memory leak
+async function loadResultsFromFile(): Promise<MultiMulitResult[]> {
+  const file = await Deno.open(CSV_PATH, { read: true });
+  const draws = await Deno.readTextFile(CSV_PATH);
+  file.close();
 
-  return draws as Array<Result>;
+  return transformCSV(draws);
 }
 
-function filterDraws(results: Result[]){
+function transformCSV(draws: string): MultiMulitResult[] {
+  const drawsArray = draws.split('\n');
+  const headers = drawsArray.shift()?.split(';');
+  const drawArray = drawsArray.map((result) => result.split(';'));
+  const multiMultiResults: MultiMulitResult[] = drawArray.map((result) =>
+    result.reduce((prev, curr, index) => {
+      if (headers === undefined) return { ...prev };
+      return { ...prev, [headers[index]]: Number(curr) };
+    }, {} as MultiMulitResult)
+  );
+
+  return multiMultiResults;
+}
+
+function filterDraws(results: MultiMulitResult[]): MultiMulitResult[] {
+  const LAST = 19
   const filteredDraws = results.filter((result: Result) => {
-    const dzien = +result["Dzien"];
-    const miesiac = +result["Miesiac"];
-    const rok = +result["Rok"];
-    const nr = +result["Numer"]
+    const nr = +result['Numer'];
 
-    return nr >= results.length-19;
-  })
+    return nr >= results.length - LAST;
+  });
   return filteredDraws;
-};
+}
 
 await downloadDraws();
-//console.log(filteredDraws);
-
