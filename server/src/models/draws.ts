@@ -2,7 +2,6 @@ import { CSV_PATH, CSV_RESOURCE } from '../dependencies.ts';
 import { MultiMulitResult, Result } from './interface.ts';
 
 export const draws = await loadResultsFromFile();
-export const filteredDraws = filterDraws(draws);
 
 async function downloadDraws() {
   const urlToFile = await fetch(CSV_RESOURCE);
@@ -36,12 +35,11 @@ function transformCSV(draws: string): MultiMulitResult[] {
   return multiMultiResults;
 }
 
-function filterDraws(results: MultiMulitResult[]): MultiMulitResult[] {
-  const LAST = 100
+export function filterDraws(results: MultiMulitResult[], limit: number): MultiMulitResult[] {
   const filteredDraws = results.filter((result: Result) => {
     const nr = +result['Numer'];
 
-    return nr >= results.length - LAST;
+    return nr >= results.length - limit;
   });
   return filteredDraws;
 }

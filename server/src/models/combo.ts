@@ -20,7 +20,7 @@ function checkCombo(element: MultiMulti, numbers: number[]): boolean {
   return false;
 }
 
-//TODO: L1 - L20 is limited only to multi-multi 20 numbers
+//TODO: L1 - L20 is limited only to multi-multi 20 numbers, ale działa z mniejszą liczbą
 function onlyNumbers<T>(element: MultiMulitResult): T {
   return {
     L1: element.L1,
@@ -72,7 +72,7 @@ export function checkDeepCombination(numbers: number[]): DeepWins {
   //Pozostaje jeszcze problem sprawdzania piątek, czwórek, trójek, wielokrotnie - znaczy trójki będą wszystkie powielone jak piątka wpadnie
   //Przerefaktorować operacje na arraykach na świeżym umyśle
 
-  const czworki = getCombination(numbers);
+  const czworki = destructOneStepAbove(numbers);
   czworki.forEach((czworka) => {
     const checked = checkCombination(czworka);
     if (checked.length === 0) return;
@@ -80,7 +80,7 @@ export function checkDeepCombination(numbers: number[]): DeepWins {
     deepWins.secondDegreeWin.push(...checked);
   });
 
-  const trojki = czworki.map((czworka) => getCombination(czworka));
+  const trojki = czworki.map((czworka) => destructOneStepAbove(czworka));
   trojki.forEach((trojka) => {
     //Trojki się powtarzają i jest to ararjka arajek
     trojka.forEach((trzy) => {
@@ -103,10 +103,29 @@ export function checkDeepCombination(numbers: number[]): DeepWins {
 //   }
 
 //   return getSetOfFives(getCombination(numbers))
-
 // }
 
-function getCombination(numbers: number[]): number[][] {
+export function getCombinations(numbers: number[] | number[][], limit: number): number[][] {
+  console.log('Jestem w getCombo', { numbers, limit });
+
+  // if (numbers[0] instanceof Array && numbers[0].length === limit) {
+  //   return numbers as number[][]
+  // }
+
+  const combinations = destructOneStepAbove(numbers as number[]);
+
+  const _a = combinations.reduce((acc, curr) => {
+    if (curr.length >= limit) {
+      acc.push(...destructOneStepAbove(curr));
+    }
+    return [...acc, curr];
+    // return acc
+  }, [] as number[][]);
+
+  return _a;
+}
+
+function destructOneStepAbove(numbers: number[]): number[][] {
   const combinations: number[][] = [];
   numbers.forEach((_, index) => {
     combinations.push(numbers.toSpliced(index, 1));
