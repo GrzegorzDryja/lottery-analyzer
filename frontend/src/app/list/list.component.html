@@ -98,7 +98,7 @@
 	}
 </div>
 
-<div class="row row--hover3">
+<div class="row row--hover2 row--opacity">
 	<div class="row__header">----</div>
 	<div class="row__header">----</div>
 	<div class="row__header">----</div>
@@ -106,6 +106,79 @@
 
 	@for (i of arr; track $index) {
 		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet6)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+
+<div class="row row--hover2 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet7.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet7)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+<div class="row row--hover2 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet8.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet8)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+<div class="row row--hover2 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet9.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet9)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+<div class="row row--hover4 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet10.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet10)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+<div class="row row--hover4 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet11.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet11)}">
+			{{ $index + 1 }}
+		</div>
+	}
+</div>
+<div class="row row--hover5 row--opacity">
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">----</div>
+	<div class="row__header">{{ newSet12.length }}</div>
+
+	@for (i of arr; track $index) {
+		<div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, newSet12)}">
 			{{ $index + 1 }}
 		</div>
 	}
