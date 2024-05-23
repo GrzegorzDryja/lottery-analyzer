@@ -28,6 +28,12 @@ router
     if (ctx.params._shouldBeOnlyArrayOfNumbers) {
       ctx.response.body = checkDeepCombination(ctx.params._shouldBeOnlyArrayOfNumbers.split(',').map((number: string) => Number(number)));
     }
-  });
+  })
+  .post('/predictions/:_shouldBeOnlyArrayOfNumbers', (ctx: RouterContext) => {
+    if (ctx.params._shouldBeOnlyArrayOfNumbers) {
+      console.log(ctx.params._shouldBeOnlyArrayOfNumbers)
+      ctx.response.body = '202 ok'
+    }
+  })
 
 export default router;
