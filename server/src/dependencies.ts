@@ -10,6 +10,13 @@ export type { RouterContext } from 'https://deno.land/x/oak@v6.0.1/mod.ts';
 export { oakCors } from 'https://deno.land/x/cors@v1.2.2/mod.ts';
 
 //Global const data
-// export const CSV_RESOURCE = 'https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane';
-export const CSV_RESOURCE = 'https://www.multipasko.pl/wyniki-csv.php?f=minilotto-sortowane';
-export const CSV_PATH = './data/wyniki.csv';
+export const CSV_RESOURCE = {
+  multi: 'https://www.multipasko.pl/wyniki-csv.php?f=multimulti-sortowane',
+  mini: 'https://www.multipasko.pl/wyniki-csv.php?f=minilotto-sortowane',
+};
+export const CSV_MINI_RESULTS_PATH = './data/mini/results.csv';
+export const CSV_MINI_PREDICTION_PATH = './data/mini/predictions.csv';
+
+export const DATA_PATH = './data';
+export const RESULTS_FILE_NAME = 'results.csv';
+export const PREDICTIONS_FILE_NAME = 'predictions.csv';

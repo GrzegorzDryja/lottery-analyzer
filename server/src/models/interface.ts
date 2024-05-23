@@ -1,3 +1,5 @@
+export type Game = 'multi' | 'mini'
+
 export type MultiMulitResult = MultiMulti & Result;
 
 export interface DeepResults extends MultiMulitResult {
@@ -38,4 +40,9 @@ export interface Result {
   Dzien: number;
   Miesiac: number;
   Rok: number;
+}
+
+export interface Prediction {
+  drawNumber: Result["Numer"]
+  numbers: number[]
 }

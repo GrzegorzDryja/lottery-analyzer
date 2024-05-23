@@ -1,21 +1,21 @@
-import { CSV_PATH, CSV_RESOURCE } from '../dependencies.ts';
-import { MultiMulitResult, Result } from './interface.ts';
+import { CSV_MINI_RESULTS_PATH, CSV_RESOURCE, DATA_PATH, RESULTS_FILE_NAME, } from '../dependencies.ts';
+import { Game, MultiMulitResult, Result } from './interface.ts';
 
 export const draws = await loadResultsFromFile();
 
-async function downloadDraws() {
-  const urlToFile = await fetch(CSV_RESOURCE);
-  saveToFile(urlToFile);
+async function downloadDraws(game: Game) {
+  const urlToFile = await fetch(CSV_RESOURCE[game]);
+  saveToFile(urlToFile, game);
 }
 
-async function saveToFile(urlToFile: Response): Promise<void> {
+async function saveToFile(urlToFile: Response, game: Game): Promise<void> {
   const csv = new Uint8Array(await urlToFile.arrayBuffer());
-  await Deno.writeFile(CSV_PATH, csv);
+  await Deno.writeFile(`${DATA_PATH}/${game}/${RESULTS_FILE_NAME}`, csv);
 }
 
 async function loadResultsFromFile(): Promise<MultiMulitResult[]> {
-  const file = await Deno.open(CSV_PATH, { read: true });
-  const draws = await Deno.readTextFile(CSV_PATH);
+  const file = await Deno.open(CSV_MINI_RESULTS_PATH, { read: true });
+  const draws = await Deno.readTextFile(CSV_MINI_RESULTS_PATH);
   file.close();
 
   return transformCSV(draws);
@@ -44,4 +44,4 @@ export function filterDraws(results: MultiMulitResult[], limit: number): MultiMu
   return filteredDraws;
 }
 
-await downloadDraws();
+await downloadDraws('mini');
