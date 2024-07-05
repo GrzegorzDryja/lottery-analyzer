@@ -7,7 +7,7 @@ export const enum ErrorTypes {
 }
 
 export class BaseHttpService {
-  static API_URL = 'http://localhost:8000';
+  static API_URL = 'http://localhost:9000';
 
   public handleError(err: Error): Observable<never> {
     Object.assign(err, { type: ErrorTypes.HTTP_ERROR });

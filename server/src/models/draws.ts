@@ -1,5 +1,5 @@
 import { Status } from 'https://deno.land/std@0.61.0/http/http_status.ts';
-import { CSV_MINI_RESULTS_PATH, CSV_RESOURCE, DATA_PATH, RESULTS_FILE_NAME, CSV_MINI_PREDICTION_PATH } from '../dependencies.ts';
+import { CSV_MINI_RESULTS_PATH, CSV_RESOURCE, DATA_PATH, RESULTS_FILE_NAME, CSV_MINI_PREDICTION_PATH, CSV_MULTI_PREDICTION_PATH, CSV_MULTI_RESULTS_PATH } from '../dependencies.ts';
 import { Prediction } from './interface.ts';
 import { Game, MultiMulitResult, Result } from './interface.ts';
 
@@ -7,6 +7,7 @@ export const draws = await loadResultsFromFile();
 
 export async function addPredictions(prediction: Prediction): Promise<Status> {
   //TODO: This could be handled by some kind of state mini/multi
+  // const predictionsCSVText = await Deno.readTextFile(CSV_MULTI_PREDICTION_PATH);
   const predictionsCSVText = await Deno.readTextFile(CSV_MINI_PREDICTION_PATH);
   const updatedPredictionsCSVText = predictionsCSVText.concat(
     String(prediction.drawNumber),
@@ -14,6 +15,7 @@ export async function addPredictions(prediction: Prediction): Promise<Status> {
     prediction.numbers.toString().replaceAll(',', ';'),
     '\n'
   );
+  // return await Deno.writeTextFile(CSV_MULTI_PREDICTION_PATH, updatedPredictionsCSVText)
   return await Deno.writeTextFile(CSV_MINI_PREDICTION_PATH, updatedPredictionsCSVText)
     .then(() => Status.OK);
 }
@@ -30,6 +32,8 @@ async function saveToFile(urlToFile: Response, game: Game): Promise<void> {
 
 async function loadResultsFromFile(): Promise<MultiMulitResult[]> {
   //TODO: To nie działa jak nie ma pliku w folderze, trzeba będzie naprawić
+  // const file = await Deno.open(CSV_MULTI_RESULTS_PATH, { read: true });
+  // const results = await Deno.readTextFile(CSV_MULTI_RESULTS_PATH);
   const file = await Deno.open(CSV_MINI_RESULTS_PATH, { read: true });
   const results = await Deno.readTextFile(CSV_MINI_RESULTS_PATH);
 

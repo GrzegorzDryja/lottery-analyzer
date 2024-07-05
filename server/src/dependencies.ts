@@ -16,6 +16,8 @@ export const CSV_RESOURCE = {
 };
 export const CSV_MINI_RESULTS_PATH = './data/mini/results.csv';
 export const CSV_MINI_PREDICTION_PATH = './data/mini/predictions.csv';
+export const CSV_MULTI_RESULTS_PATH = './data/multi/results.csv';
+export const CSV_MULTI_PREDICTION_PATH = './data/multi/predictions.csv';
 
 export const DATA_PATH = './data';
 export const RESULTS_FILE_NAME = 'results.csv';

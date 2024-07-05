@@ -1,4 +1,3 @@
-import { Status } from 'https://deno.land/std@0.61.0/http/http_status.ts';
 import { Router, RouterContext } from './dependencies.ts';
 import { checkCombination, checkDeepCombination, getCombinations } from './models/combo.ts';
 import { filterDraws, draws, addPredictions } from './models/draws.ts';

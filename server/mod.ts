@@ -8,7 +8,7 @@ await log.setup({
   }
 });
 
-const PORT = Number(Deno.env.get("PORT")) || 8000;
+const PORT = Number(Deno.env.get("PORT")) || 9000;
 const app = new Application();
 
 //Error handler middleware
@@ -23,7 +23,7 @@ app.use(async (ctx: Context, next) => {
 
 // Serve RESTful API
 app.use(oakCors({
-  origin: "http://localhost:4200"  
+  origin: "http://localhost:4900"  
 }))
 app.use(router.routes());
 app.use(router.allowedMethods());

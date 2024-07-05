@@ -14,7 +14,7 @@ export class HttpService extends BaseHttpService {
   }
 
   public getLatestDraws(): Observable<MultiMulitResult[]> {
-    const request = this.http.get<MultiMulitResult[]>(`${HttpService.API_URL}/draws?limit=30`);
+    const request = this.http.get<MultiMulitResult[]>(`${HttpService.API_URL}/draws?limit=42`);
 
     return this.handleRequest<MultiMulitResult[]>(request);
   }
