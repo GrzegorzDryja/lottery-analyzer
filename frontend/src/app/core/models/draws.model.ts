@@ -1,5 +1,28 @@
 export type MultiMulitResult = MultiMulti & Result;
 
+export interface CheckedWins extends Deep {
+  lot: number[]
+}
+
+export interface Wins {
+  Numer: number,
+  Dzien: number,
+  Miesiac: number,
+  Rok: number,
+  L1: number,
+  L2:number,
+  L3: number,
+  L4: number,
+  L5: number,
+  winnerSet: number[]
+}
+
+export type Deep = {
+  firstDegreeWin: Wins[],
+  secondDegreeWin: Wins[],
+  thirdDegreeWin: Wins[]
+}
+
 export interface MultiMulti {
   L1: number;
   L2: number;

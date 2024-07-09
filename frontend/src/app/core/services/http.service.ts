@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { BaseHttpService } from './base-http.service';
-import { MultiMulitResult } from '../models/draws.model';
+import { Deep, MultiMulitResult } from '../models/draws.model';
 
 @Injectable({
     providedIn: 'root'
@@ -17,5 +17,11 @@ export class HttpService extends BaseHttpService {
     const request = this.http.get<MultiMulitResult[]>(`${HttpService.API_URL}/draws?limit=42`);
 
     return this.handleRequest<MultiMulitResult[]>(request);
+  }
+
+  public checkDeep(numbers: number[]): Observable<Deep> {
+    const request = this.http.get<Deep>(`${HttpService.API_URL}/checkDeep/${ numbers }`);
+
+    return this.handleRequest<Deep>(request);
   }
 }
