@@ -1,34 +1,39 @@
 @if ({draws: draws$ | async}; as data) { @for (draw of data.draws; track $index) {
-<div class="row">
-  <div class="row__header">{{ draw.Numer }}</div>
-  <div class="row__header">{{ draw.Dzien }}</div>
-  <div class="row__header">{{ draw.Miesiac }}</div>
-  <div class="row__header">{{ draw.Rok }}</div>
+  <div class="row">
+    <div class="row__header">{{ draw.Numer }}</div>
+    <div class="row__header">{{ draw.Dzien }}</div>
+    <div class="row__header">{{ draw.Miesiac }}</div>
+    <div class="row__header">{{ draw.Rok }}</div>
 
-  @for (i of gameLimit; track $index) {
-  <!-- MultiMulti -->
-  <!-- <div
-        class="item"
-        [ngClass]="{ 'item--white': checkNumber($index + 1, [draw.L1,draw.L2,draw.L3,draw.L4,draw.L5,draw.L6,draw.L7,draw.L8,draw.L9,draw.L10,draw.L11,draw.L12,draw.L13,draw.L14,draw.L15,draw.L16,draw.L17,draw.L18,draw.L19,draw.L20])}"
-    > -->
-  <!-- MiniLotto -->
-  <div class="item" [ngClass]="{ 'item--white': checkNumber($index + 1, [draw.L1, draw.L2, draw.L3, draw.L4, draw.L5]) }">
-    {{ $index + 1 }}
+    @for (_i of gridWidth; track $index) {
+    <!-- MultiMulti -->
+    <!-- <div
+          class="item"
+          [ngClass]="{ 'item--white': checkNumber($index + 1, [draw.L1,draw.L2,draw.L3,draw.L4,draw.L5,draw.L6,draw.L7,draw.L8,draw.L9,draw.L10,draw.L11,draw.L12,draw.L13,draw.L14,draw.L15,draw.L16,draw.L17,draw.L18,draw.L19,draw.L20])}"
+      > -->
+    <!-- MiniLotto -->
+      <div class="item" [ngClass]="{ 'item--white': checkNumber($index + 1, [draw.L1, draw.L2, draw.L3, draw.L4, draw.L5]) }">
+        {{ $index + 1 }}
+      </div>
+    }
   </div>
-  }
-</div>
 }
 <div class="row">
   <div class="row__header">-</div>
   <div class="row__header">-</div>
   <div class="row__header">-</div>
   <div class="row__header">-</div>
-  @for (i of gameLimit; track $index) {
-  <div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, prediction) }" (click)="addPredictionNumber($index + 1)">
-    {{ $index + 1 }}
-  </div>
+  @for (i of gridWidth; track $index) {
+    <div class="item" [ngClass]="{ 'item--prediction': checkNumber($index + 1, prediction) }" (click)="addPredictionNumber($index + 1)">
+      {{ $index + 1 }}
+    </div>
   }
+  <div>{{ prediction.length }}</div>
 </div>
 }
 
-<button (click)="checkDeepAll(lots)">Sprawdź wszystkie</button>
+@for (lots of $checkedLots(); track $index) {
+  <div>{{ lots?.lot }} ma wygrane: 5: {{ lots?.firstDegreeWin?.length }} | 4: {{ lots?.secondDegreeWin?.length }} | 3: {{ lots?.thirdDegreeWin?.length }}</div>
+}
+
+<button (click)="checkDeepAll()">Sprawdź wszystkie</button>
